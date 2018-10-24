@@ -8,10 +8,13 @@ import axios from 'axios';
 
   //action creator exports
   export function addUser(user){
-    return {
-      type: '',
-      payload: ''
+
+    return async dispatch => {
+      const response = await axios.post('/api/signup', user);
+      console.log (response);
+      dispatch({ type: '', payload: '' });
     }
+
   }
   export function login(user) {
     return async dispatch => {
