@@ -16,6 +16,8 @@ passport.deserializeUser((id, done)=>{
 // passport local-strategy
 passport.use(new LocalStrategy(async (username, password, done) => {
     const user = await User.findOne({username: username, password: password});
+    console.log('passport');
+    console.log(user);
     if(!user) { 
         done(null,false); 
     }
